@@ -7,6 +7,22 @@ Gazebo based simulator for "ASRobotics EyeCar" kit.
  - [ ] Road signs
  - [ ] Traffic light
 
+### Ackermann steering
+#### TODO: 
+ - Simple robot with camera and ackermann steering control. 
 
+
+### Simple test scene
+Simple model of the test site. 
+
+
+---
+
+```
+
+?? LOGO ??
+
+
+```
 
  
