@@ -7,15 +7,14 @@ project(nti_autonet_2021_car_sim)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS
-  nav_msgs
-  # roscpp
-  rospy
-  sensor_msgs
-  std_msgs
-  tf
-  message_generation
-)
+
+
+# add_dependencies(twist_to_ackermann ack_gazebo_generate_messages_cpp)
+
+# include_directories(include ${catkin_INCLUDE_DIRS})
+
+
+
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -216,6 +215,22 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+find_package(catkin REQUIRED COMPONENTS
+  nav_msgs
+  roscpp
+  rospy
+  sensor_msgs
+  std_msgs
+  tf
+  message_generation
+  geometry_msgs
+)
+include_directories(
+        ${catkin_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS}
+)
+add_executable(twist_to_ackermann src/twist_to_ackermann.cpp)
+target_link_libraries(twist_to_ackermann ${catkin_LIBRARIES})
 
 file(GLOB python_scripts_DIR
     "src/*.py"
